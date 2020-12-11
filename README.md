@@ -12,6 +12,6 @@ data on four dimensions: Time, Region, Project, Operation.
 Data Integration, as well as exporting reports using Pentaho Server.
 - Automating the data ETL pipeline using Jenkins.
 
-#### The full detailed report of the project can be found in the PDF file proved in the repository
-#### Also a video explain the process of the project can be found in the repository
-#### Note : The report is made in french language
+#### The full detailed report of the project can be found in the PDF file provided in the repository [/RapportProjetPentaho.pdf](https://github.com/sakuragi97/Business-Intelligence-Pentaho/blob/main/RapportProjetPentaho.pdf)
+#### Also a video explains the process of the project can be found in the repository [/Video_ProjetPentaho.mp4](https://github.com/sakuragi97/Business-Intelligence-Pentaho/blob/main/Video_ProjetPentaho.mp4)
+#### Note: The report is made in french language
