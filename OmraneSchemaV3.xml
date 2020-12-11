@@ -1,0 +1,62 @@
+<Schema name="OmraneSchemaV3">
+  <Cube name="OmraneCube" visible="true" cache="true" enabled="true">
+    <Table name="facttable">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="date_debut" highCardinality="false" name="Temps_dim">
+      <Hierarchy name="temps" visible="true" hasAll="true" primaryKey="date_debut">
+        <Table name="temps_dim">
+        </Table>
+        <Level name="Year" visible="true" table="temps_dim" column="Year" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" table="temps_dim" column="Month" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="date_debut" visible="true" table="temps_dim" column="date_debut" type="Date" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="tkey_pro" highCardinality="false" name="Projet_dim">
+      <Hierarchy name="projet" visible="true" hasAll="true" primaryKey="tkey_pro">
+        <Table name="projet_dim">
+        </Table>
+        <Level name="ALL_PROJECTS" visible="true" table="projet_dim" column="all_project" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="nature_projet" visible="true" table="projet_dim" column="nature_projet" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="tkey_opr" highCardinality="false" name="Operation_dim">
+      <Hierarchy name="operation" visible="true" hasAll="true" primaryKey="tkey_opr">
+        <Table name="operation_dim">
+        </Table>
+        <Level name="ALL_OPERATIONS" visible="true" table="operation_dim" column="all_operation" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="nature_operation" visible="true" table="operation_dim" column="nature_operation" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="id_region" highCardinality="false" name="Region_dim">
+      <Hierarchy name="RegionProvince" visible="true" hasAll="true" primaryKey="id_region">
+        <Table name="region_dim">
+        </Table>
+        <Level name="province" visible="true" table="region_dim" column="province" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="commune" visible="true" table="region_dim" column="commune" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+      <Hierarchy name="RegionType" visible="true" hasAll="true" primaryKey="id_region">
+        <Table name="region_dim">
+        </Table>
+        <Level name="type_commune" visible="true" table="region_dim" column="type_commune" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="commune" visible="true" table="region_dim" column="commune" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Chiffre_D_affaires" column="Chiffre_D_affaires" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="cout_operation" column="cout_operation" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="superficie" column="superficie" datatype="Numeric" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
